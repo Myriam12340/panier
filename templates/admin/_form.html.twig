@@ -1,0 +1,94 @@
+
+
+
+
+                    {{ form_start(form ) }}
+
+
+
+
+                <div class="group-rom">
+                    <div class="first-part odd">Nom <span class="text-danger">*</span></div>
+                    <div class="second-part"> {{ form_widget(form.nom, {'attr':{'class':'form-control','placeholder': "Nom"}}) }}
+                        <span class="text-danger">
+{{ form_errors(form) }}</span>
+                    </div>
+
+
+
+
+
+
+                </div>
+                <div class="group-rom">
+                    <div class="first-part odd">Prix <span class="text-danger">*</span></div>
+                    <div class="second-part">  {{ form_widget(form.prix, {'attr':{'class':'form-control','placeholder': "Prix"}}) }}</div>
+
+                </div>
+                <div class="group-rom">
+                    <div class="first-part odd">description <span class="text-danger">*</span></div>
+                    <div class="second-part">  {{ form_widget(form.description, {'attr':{'class':'form-control','placeholder': "Description"}}) }}
+                        <span class="text-danger">
+{{ form_errors(form.description) }}</span>
+                    </div>
+
+                </div>
+                    <div class="group-rom">
+                        <div class="first-part odd">Type <span class="text-danger">*</span></div>
+                        <div class="second-part">  {{ form_row(form.type, {'attr':{'class':'form-control','placeholder': "type"}}) }}</div>
+
+                    </div>
+                    <div class="group-rom">
+                        <div class="first-part odd">Quantite <span class="text-danger">*</span></div>
+                        <div class="second-part">  {{ form_widget(form.qte, {'attr':{'class':'form-control','placeholder': "Quantite"}}) }}</div>
+
+                    </div>
+                <div class="group-rom">
+                    <div class="first-part odd">Photo <span class="text-danger">*</span></div>
+                    <div class="second-part">  {{ form_widget(form.imageFile, {'attr':{'class':'form-control','placeholder': ""}}) }}</div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="group-rom ">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3">
+                            <br>
+                            <button class="btn btn-success btn-lg mb-1 mx-auto z-depth-5 btn-rounded text-white" ><i class="fa fa-check"></i>{{ button_label|default('Save') }}</button>
+
+
+
+</div>
+
+
+
+
+
+
+                        <div class="col-lg-3">
+                            <br>
+                            <button type="button" class="btn btn-danger btn-primary  btn-lg mb-1 mx-auto z-depth-5 btn-rounded ">
+                                <a href="{{ path('liste_produit') }}"class= text-white title="Annuler"><i class="fa fa-ban"></i>Annuler </a></button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}
+
+

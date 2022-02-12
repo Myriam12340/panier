@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Log in!' %}
+{% block stylesheets %}  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('form/assets/css/login.css') }}">
+{% endblock %}
+ {% block javascripts %}
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ {% endblock %}
+{% block body %}
+    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+        <div class="container">
+            <div class="card login-card">
+                <div class="row no-gutters">
+                    <div class="col-md-5">
+                        <img src="{{ asset('form/assets/images/login.jpg') }}" alt="login" class="login-card-img">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+
+                            <p class="login-card-description">Sign up into your account</p>
+
+                            {{ form_start(registrationForm) }}
+                            <div class="group-rom">
+                                <div class="first-part odd">Fist name<span class="text-danger">*</span></div>
+
+                                <div class="second-part"> {{ form_widget(registrationForm.first_name, {'attr':{'class':'form-control',  'placeholder': " first name"}}) }}</div>
+                                <div class="form-error">
+                                    <span class="text-danger">{{ form_errors(registrationForm.first_name) }}</span>
+                                </div>
+
+                            </div>
+
+                            <div class="group-rom">
+                                <div class="first-part odd">Last name<span class="text-danger">*</span></div>
+
+                                <div class="second-part"> {{ form_widget(registrationForm.last_name, {'attr':{'class':'form-control',  'placeholder': "last_name"}}) }}</div>
+
+                                <div class="form-error">
+                                    <span class="text-danger">{{ form_errors(registrationForm.last_name) }}</span>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="group-rom">
+                                <div class="first-part odd">Mobile<span class="text-danger">*</span></div>
+
+                                <div class="second-part"> {{ form_widget(registrationForm.tel, {'attr':{'class':'form-control',  'placeholder': "Télephone"}}) }}</div>
+
+                                <div class="form-error">
+                                    <span class="text-danger">{{ form_errors(registrationForm.tel) }}</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="group-rom">
+                                <div class="first-part odd">Email<span class="text-danger">*</span></div>
+
+                                <div class="second-part"> {{ form_widget(registrationForm.email, {'attr':{'class':'form-control',  'placeholder': "Adress mail"}}) }}</div>
+
+                                <div class="form-error">
+                                    <span class="text-danger">{{ form_errors(registrationForm.email) }}</span>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="group-rom">
+                                <div class="first-part odd">Paasseword<span class="text-danger">*</span></div>
+
+                                <div class="second-part"> {{ form_widget(registrationForm.plainPassword, {'attr':{'class':'form-control',  'placeholder': " Password"}}) }}</div>
+
+
+                                <div class="form-error">
+                                    <span class="text-danger">{{ form_errors(registrationForm.plainPassword) }}</span>
+                                </div>
+
+
+                            </div>
+
+                                    {{ form_row(registrationForm.agreeTerms) }}
+
+
+                                <button class="btn btn-block login-btn mb-4" type="submit" formnovalidate>
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>  Register
+                                </button>
+
+
+
+                                    {{ form_end(registrationForm) }}
+                            <p class="login-card-footer-text">  Already have an account? <a href="{{ path('app_login') }}" class="text-reset">Login</a></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre panier{% endblock %}
+
+ {% block javascripts %}
+     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"
+             xmlns:color="http://www.w3.org/1999/xhtml" xmlns:color="http://www.w3.org/1999/xhtml"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+ {% endblock %}
+
+{% block body %}
+
+    <section class="banner banner-secondary" id="top" style="background-image: url({{asset('theme/img/contact-image-1-1920x700.jpg')}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="banner-caption">
+                        <div class="line-dec"></div>
+                        <h2>Produits</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><bR>
+    <section class="bg-light p-5 ">
+<div class="text-light">
+    <h1 class="   text-center col-xs-1 col-md-12 " style="background-color: #ce9061 ">Votre panier</h1></div></section>
+    <div style="border-color: black">
+    <legend style="background-color: #fefccc">
+
+    <table class="table">
+        <thead>
+        <tr class="table-success">
+            <th colspan="1">Produit</th>
+            <th colspan="1">Prix</th>
+
+            <th colspan="1">Quantité</th>
+            <th colspan="1">Total</th>
+            <th colspan="">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for type, messages in app.flashes(['success', 'error', 'info']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for element in dataPanier %}
+            <tr>
+                <td>{{ element.produit.nom }}</td>
+                <td class="text-end">{{ element.produit.prix }} DT </td>
+                <td>{{ element.quantite }}</td>
+                <td  class="text-end">{{ element.quantite * element.produit.prix }} DT </td>
+                <td>
+                    <a href="{{path("cart_ajouter", {id: element.produit.id})}}" class="btn btn-success" title="ajouter 1 produit">
+                        <i class="fas fa-cart-plus"></i>
+                    </a>
+                    <a href="{{path("cart_supprime1", {id: element.produit.id})}}" class="btn btn-warning" title="supprimer 1 produit">
+                        <i class="bi bi-cart-dash"></i>
+                    </a>
+                    <a href="{{path("cart_supprimer", {id: element.produit.id})}}" class="btn btn-danger" title="supprimer le produit">
+                        <i class="bi bi-cart-x"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5" class="text-center">Votre panier est vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <br>
+            <td colspan="3" ><b>Montant total</b> </td>
+            <td class="text-end"> <b style="color: red">{{ total }} DT</b></td>
+            <td>
+                <a href="{{path("cart_vider_panier")}}" class="btn btn-danger">
+                    <i class="bi bi-cart-x"></i> si vous voulez vider la panier
+                </a>
+            </td>
+
+        </tr>
+        </tfoot>
+    </table>
+        <div class="col-lg-offset-5
+">
+        <a href="/cart/valider " class="btn btn-success"><i class="fas fa-check"></i> Confirmer</a></div>
+</legend>
+    </div>
+
+{% endblock %}

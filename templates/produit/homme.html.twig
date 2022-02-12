@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les produits
+{% endblock %}
+
+{% block body %}
+    {% for type, messages in app.flashes(['success', 'error', 'info']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <section class="banner banner-secondary" id="top" style="background-image: url({{asset('theme/img/homme.gif')}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="banner-caption">
+                        <div class="line-dec"></div>
+                        <h2>Produit pour homme</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="featured-places">
+        <div class="item-2">
+            <div class="container">
+                <div class="row">
+                    {% for produit in produits %}
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="featured-item">
+                                <div class="thumb">
+                                    <img src="{{ (produit.imageName ? vich_uploader_asset(produit) : asset('public/uploads/produit/placeholder.jpg'))  }}" alt="{{ produit.nom }}" class="w-100" height="50" />
+                                </div>
+                                <div class="down-content">
+                                    <h4>{{ produit.nom }}</h4>
+
+                                    <span> <strong>{{ produit.prix }}<sup>DT</sup></strong></span>
+
+
+
+                                    <div class="text-button">
+                                        <a href="{{ path('produit/consulter', {'id': produit.id}) }}">View More</a>
+                                    </div>
+                                    {% if is_granted('ROLE_USER') %}
+                                    <div class="text-button">
+                                        <a href="{{ path('cart_addh', {'id': produit.id}) }}"><i class="fas fa-shopping-basket"></i>add</a>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %} </div></div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

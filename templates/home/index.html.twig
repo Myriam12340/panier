@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+ {% block javascripts %}
+     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+ {% endblock %}
+{% block body %}
+
+<section class="banner" id="top" style="background-image: url({{asset('theme/img/homepage-banner-image-1920x700.jpg')}});">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="banner-caption">
+                    <div class="line-dec"></div>
+                    <h2>BIENVENUE SUR NOTRE NOUVEAU SITE WEB
+                    </h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main>
+    <section class="our-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="left-content">
+                        <br>
+                        <h4>About us</h4>
+                        <p>nous sommes heureux de vous accueillir sur le nouveau site Internet Riello, disposant d'une mise en page réactive vous permettant une navigation simple et fonctionnelle.
+                            Notre nouveau site a été complètement redessiné, afin de s'adapter automatiquement à la taille de l'écran et au dispositif utilisé pour le lire..
+                            Vous bénéficiez ainsi d'un affichage toujours optimal, quel que soit votre appareil.
+                            D'une page d'accueil vaste et fonctionnelle, vous accèderez de façon intuitive au contenu du site Internet: chaque section permet un accès facile à une information pertinente.
+                            Le contenu des pages "Produits" est constamment mis à jour et vous permet de télécharger toute la documentation utile.
+                            Gardez toujours le contact avec Riello: en naviguant régulièrement sur notre site, vous découvrirez nos nouveaux produits, contenus et événements.
+                            Nous vous souhaitons une agréable navigation!</p>
+
+
+
+                        <br>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <img src="{{asset('theme/img/about-1-720x480.jpg')}}" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
